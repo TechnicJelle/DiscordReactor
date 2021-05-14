@@ -3,7 +3,8 @@
 ![Promo image](images/promo.png "Promo image")
 
 Discord doesn't allow more than one of the same emoji, so finding alternatives to use instead was always a time-consuming task, but not anymore!\
-With this small Python program you can convert any sentence to a valid list of Discord emojis, so you can use them to react to messages!
+With this small Python program you can convert any sentence to a valid list of Discord emojis, so you can use them to react to messages!\
+[Try it here directly in your browser!](https://onlinegdb.com/LI3PE963P)
 
 ## Examples
 A successful conversion
