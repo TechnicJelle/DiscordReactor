@@ -73,7 +73,7 @@ for letter in letters:
     # print(letter, occurrence)
 
     possible = emojiDict.get(letter)
-    if not occurrence <= len(possible):
+    if occurrence > len(possible):
         print("Impossibility at letter " + letter)
         impossible = True
 
