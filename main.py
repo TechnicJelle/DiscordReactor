@@ -1,3 +1,5 @@
+import sys
+
 emojiDict = {
 	"A": [":regional_indicator_a:", ":a:", ":arrow_up_small:", ":small_red_triangle:"],
 	"B": [":regional_indicator_b:", ":b:"],
@@ -91,7 +93,6 @@ def text2emoji(inp):
 	### Fabricate the final result <--
 	return result
 
-import sys
 if len(sys.argv) > 1:
 	originalMessage = ""
 	for i in range(1, len(sys.argv)):
