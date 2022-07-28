@@ -23,7 +23,7 @@ emojiDict = {
 	"T": [":regional_indicator_t:", ":cross:"],
 	"U": [":regional_indicator_u:"],
 	"V": [":regional_indicator_v:", ":aries:", ":ballot_box_with_check:", ":white_check_mark:", ":heavy_check_mark:"],
-	"W": [":regional_indicator_w:"],
+	"W": [":regional_indicator_w:", ":wavy_dash:"],
 	"X": [":regional_indicator_x:", ":negative_squared_cross_mark:", ":x:", ":heavy_multiplication_x:"],
 	"Y": [":regional_indicator_y:", ":yen:"],
 	"Z": [":regional_indicator_z:"],
