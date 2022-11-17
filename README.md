@@ -1,4 +1,5 @@
 # DiscordReactor
+[![aur](https://img.shields.io/badge/aur-%231793D1.svg?style=flat&logo=arch-linux&logoColor=white)](https://aur.archlinux.org/packages/discord-reactor-git)
 
 ![Promo image](.github/images/promo.png "Promo image")
 
@@ -33,6 +34,16 @@ Support for command line arguments:
 ```bash
 > python main.py Hello World
 :regional_indicator_h: :regional_indicator_e: :regional_indicator_l: :clock3: :regional_indicator_o: :black_small_square: :regional_indicator_w: :o2: :regional_indicator_r: :alarm_clock: :regional_indicator_d:
+```
+
+## Installation
+You can now install this script from the AUR: https://aur.archlinux.org/packages/discord-reactor-git
+```bash
+> paru -S discord-reactor-git
+Discord Reactor installed successfully.
+
+> discord-reactor Hello
+:regional_indicator_h: :regional_indicator_e: :regional_indicator_l: :clock3: :regional_indicator_o:
 ```
 
 ## Contributing
