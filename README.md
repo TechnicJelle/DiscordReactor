@@ -34,3 +34,6 @@ Support for command line arguments:
 > python main.py Hello World
 :regional_indicator_h: :regional_indicator_e: :regional_indicator_l: :clock3: :regional_indicator_o: :black_small_square: :regional_indicator_w: :o2: :regional_indicator_r: :alarm_clock: :regional_indicator_d:
 ```
+
+## Contributing
+If you find another emoji that could be used as a letter that isn't already in the disctionary, please don't hesitate to PR and add it! :)
