@@ -10,7 +10,7 @@ emojiDict = {
 	"E": [":regional_indicator_e:", ":e_mail:"],
 	"F": [":regional_indicator_f:"],
 	"G": [":regional_indicator_g:"],
-	"H": [":regional_indicator_h:", ":hotel:", ":love_hotel:"],
+	"H": [":regional_indicator_h:", ":hash:", ":hotel:", ":love_hotel:"],
 	"I": [":information_source:", ":regional_indicator_i:"],
 	"J": [":regional_indicator_j:"],
 	"K": [":regional_indicator_k:"],
