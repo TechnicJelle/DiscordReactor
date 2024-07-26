@@ -16,7 +16,7 @@ emojiDict = {
 	"K": [":regional_indicator_k:"],
 	"L": [":regional_indicator_l:", ":clock3:", ":alarm_clock:", ":school:"],
 	"M": [":regional_indicator_m:", ":m:", ":scorpius:", ":virgo:"],
-	"N": [":regional_indicator_n:"],
+	"N": [":regional_indicator_n:", ":capricorn:"],
 	"O": [":regional_indicator_o:", ":o2:", ":o:", ":record_button:", ":arrows_counterclockwise:", ":repeat:", ":globe_with_meridians:", ":repeat_one:"],
 	"P": [":regional_indicator_p:", ":parking:"],
 	"Q": [":regional_indicator_q:"],
