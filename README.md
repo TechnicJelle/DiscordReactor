@@ -5,7 +5,7 @@
 
 Discord doesn't allow reactions with more than one of the same emoji, so finding alternatives to use instead was always a time-consuming task, but not anymore!\
 With this small Python script you can convert any sentence to a valid list of Discord emojis, so you can use them to react to messages!\
-[Try it here directly in your browser!](https://www.online-python.com/iu8ezx40hV)
+[Try it here directly in your browser!](https://www.online-python.com/DyZCYiKFdz)
 
 ## Examples
 A successful conversion
