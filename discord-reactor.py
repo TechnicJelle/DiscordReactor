@@ -3,6 +3,9 @@
 import sys
 
 emojiDict = {
+	"II": [":pause_button:"],
+	"OK": [":ok:"],
+	"WC": [":wc:"],
 	"A": [":regional_indicator_a:", ":a:", ":arrow_up_small:", ":small_red_triangle:"],
 	"B": [":regional_indicator_b:", ":b:"],
 	"C": [":regional_indicator_c:", ":copyright:"],
@@ -41,58 +44,47 @@ emojiDict = {
 	"9": [":nine:"],
 	"0": [":zero:"]
 }
+
 def text2emoji(inp):
-	### String cleanup -->
 	inp = inp.upper()
 
-	invalid = False
-	for letter in inp:
-		if letter not in emojiDict:
-			invalid = True
-			break
+	i = 0
+	result = ""
 
-	if len(inp) < 1:
-		invalid = True
+	while i < len(inp):
+		substitute = None
+		lettersToAdd = 0
 
-	if invalid:
-		return "Invalid input!"
-	### String cleanup <--
+		for original, substitutes in emojiDict.items():
+			if len(substitutes) == 0:
+				continue
 
-	### Count letters -->
-	letters = dict()
-	for letter in inp:
-		#print(letter)
-		if not letter in letters.keys():
-			letters[letter] = inp.count(letter)
-	### Count letters <--
+			lettersToAdd = len(original)
+			lettersLeft = len(inp) - i
 
-	### Check if there are enough emoji's to fit the input -->
-	impossible = False
-	for letter in letters:
-		occurrence = letters.get(letter)
-		# print(letter, occurrence)
+			if lettersToAdd > lettersLeft:
+				continue
 
-		possible = emojiDict.get(letter)
-		if occurrence > len(possible):
-			if letter == ' ':
+			if original == inp[i:i + len(original)]:
+				substitute = substitutes.pop(0)
+
+				break
+
+		if substitute is None:
+			char = inp[i]
+
+			if char == ' ':
 				print("Impossibility at space")
 			else:
-				print("Impossibility at letter " + letter)
-			impossible = True
+				print("Impossibility at letter " + char)
 
-	if impossible:
-		return "Impossible message!"
-	### Check if there are enough emoji's to fit the input <--
+			return "Impossible message!"
 
-	### Fabricate the final result -->
-	result = ""
-	for letter in inp:
-		possible = emojiDict.get(letter)
-		result += possible[0] + " "
-		possible.pop(0)
+		result += substitute + " "
+		i += lettersToAdd
 
 	result = result.strip()
-	### Fabricate the final result <--
+
 	return result
 
 if len(sys.argv) > 1:
