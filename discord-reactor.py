@@ -45,56 +45,56 @@ emojiDict = {
 	"0": [":zero:"]
 }
 
-def text2emoji(inp):
-	inp = inp.upper()
+def text2emojis(inpOriginal: str) -> list[str] | None:
+	inp: str = inpOriginal.upper()
 
 	# Loop over all keys with substitutes in the dict and see if they match a part of the input.
 	# If they do, add the substitute to the result and move on to the next letter.
 	# If they don't, the message is impossible to convert.
 
-	i = 0
-	result = ""
+	i: int = 0
+	result: list[str] = []
 
 	while i < len(inp):  # Not a for-loop because `i` increments in irregular steps, manually.
-		substitute = None
-		lettersToAdd = 0
+		substitute: str | None = None
+		lettersToAdd: int = 0
 
 		for key, substitutes in emojiDict.items():
 			if len(substitutes) == 0:
 				continue  # This key has no substitutes left, but we do not break entirely yet, because there may still be other keys with substitutes left.
 
-			lettersToAdd = len(key)
-			lettersLeft = len(inp) - i
+			lettersToAdd: int = len(key)
+			lettersLeft: int = len(inp) - i
 
 			if lettersToAdd > lettersLeft:
 				continue  # We're trying a long key, but there are not enough letters left in the input, so let's try the next key. It may be sorter and be a match.
 
 			if key == inp[i:i + len(key)]:
-				substitute = substitutes.pop(0)
-
+				substitute: str | None = substitutes.pop(0)
 				break
 
 		if substitute is None:  # No key had any substitutes left, so we have an impossible message.
-			char = inp[i]
-
-			if char == ' ':
-				print("Impossibility at space")
-			else:
-				print("Impossibility at letter " + char)
-
-			return "Impossible message!"
+			char: str = inpOriginal[i]
+			if char == ' ': char = "space"
+			print("Not enough emojis exist to convert all the \"" + char + "\"s in your message...")
+			return None
 
 		# We have a substitute, so let's add it to the result and move on to the next letter.
-		result += substitute + " "
+		result.append(substitute)
 		i += lettersToAdd
-
-	result = result.strip()
 
 	return result
 
-if len(sys.argv) > 1:
-	originalMessage = " ".join(sys.argv[1:])
+
+originalMessage: str = " ".join(sys.argv[1:]) \
+	if len(sys.argv) > 1 \
+	else input("Message to turn into Discord react emojis: ")
+
+emojis: list[str] | None = text2emojis(originalMessage)
+
+if emojis is None:
+	print("\033[91mImpossible to convert message to emojis.\033[0m")
+	exit(1)
 else:
-	originalMessage = input("Message to turn into Discord react emojis: ")
-endString = text2emoji(originalMessage)
-print(endString)
+	endString: str = " ".join(emojis)
+	print(endString)
