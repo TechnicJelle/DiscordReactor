@@ -48,29 +48,33 @@ emojiDict = {
 def text2emoji(inp):
 	inp = inp.upper()
 
+	# Loop over all keys with substitutes in the dict and see if they match a part of the input.
+	# If they do, add the substitute to the result and move on to the next letter.
+	# If they don't, the message is impossible to convert.
+
 	i = 0
 	result = ""
 
-	while i < len(inp):
+	while i < len(inp):  # Not a for-loop because `i` increments in irregular steps, manually.
 		substitute = None
 		lettersToAdd = 0
 
-		for original, substitutes in emojiDict.items():
+		for key, substitutes in emojiDict.items():
 			if len(substitutes) == 0:
-				continue
+				continue  # This key has no substitutes left, but we do not break entirely yet, because there may still be other keys with substitutes left.
 
-			lettersToAdd = len(original)
+			lettersToAdd = len(key)
 			lettersLeft = len(inp) - i
 
 			if lettersToAdd > lettersLeft:
-				continue
+				continue  # We're trying a long key, but there are not enough letters left in the input, so let's try the next key. It may be sorter and be a match.
 
-			if original == inp[i:i + len(original)]:
+			if key == inp[i:i + len(key)]:
 				substitute = substitutes.pop(0)
 
 				break
 
-		if substitute is None:
+		if substitute is None:  # No key had any substitutes left, so we have an impossible message.
 			char = inp[i]
 
 			if char == ' ':
@@ -80,6 +84,7 @@ def text2emoji(inp):
 
 			return "Impossible message!"
 
+		# We have a substitute, so let's add it to the result and move on to the next letter.
 		result += substitute + " "
 		i += lettersToAdd
 
