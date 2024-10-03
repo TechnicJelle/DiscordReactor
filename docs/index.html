@@ -3,24 +3,28 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1"/>
-	<title>🦜 Polyglot - Piratical PyScript</title>
+	<title>Discord Reactor</title>
 	<script type="module" src="https://pyscript.net/releases/2024.9.2/core.js"></script>
+	<style>
+		py-config {
+			display: none;
+		}
+
+		py-script {
+			display: none;
+		}
+	</style>
 </head>
 <body>
-<h1>Polyglot 🦜 💬 🇬🇧 ➡️ 🏴‍☠️</h1>
-<p>Translate English into Pirate speak...</p>
-<input type="text" id="english" placeholder="Type English here..."/>
-<button py-click="translate_english">Translate</button>
-<pre style="white-space: wrap" id="output"></pre>
 <py-config>
 [files]
-"discord_reactor.py" = "https://raw.githubusercontent.com/TechnicJelle/DiscordReactor/refs/heads/main/discord-reactor.py"
+"https://raw.githubusercontent.com/TechnicJelle/DiscordReactor/refs/heads/main/discord-reactor.py" = "discord_reactor.py"
 </py-config>
 <py-script>
 from pyscript import document
 from discord_reactor import main
-def translate_english(event):
-	input_text = document.querySelector("#english")
+def run(event):
+	input_text = document.querySelector("#my_input")
 	text: str = input_text.value
 	if text == "" or text.isspace():
 		return
@@ -28,4 +32,12 @@ def translate_english(event):
 	output_div = document.querySelector("#output")
 	output_div.innerText = main(english)
 </py-script>
+
+<h1>Discord Reactor</h1>
+<p>Convert a sentence into Discord emoji...</p>
+<p><small>(To try another sentence, reload the page...)</small></p>
+<input type="text" id="my_input" placeholder="Type words here..."/>
+<button py-click="run">Convert</button>
+<pre style="white-space: wrap" id="output"></pre>
+
 </html>
