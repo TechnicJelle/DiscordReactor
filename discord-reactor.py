@@ -88,10 +88,7 @@ def text2emoji(inp):
 	return result
 
 if len(sys.argv) > 1:
-	originalMessage = ""
-	for i in range(1, len(sys.argv)):
-		originalMessage += sys.argv[i] + " "
-	originalMessage = originalMessage.strip()
+	originalMessage = " ".join(sys.argv[1:])
 else:
 	originalMessage = input("Message to turn into Discord react emojis: ")
 endString = text2emoji(originalMessage)
