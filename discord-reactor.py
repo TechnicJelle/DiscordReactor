@@ -116,15 +116,20 @@ def text2emojis(inpOriginal: str) -> list[str] | None:
 	return result
 
 
-originalMessage: str = " ".join(sys.argv[1:]) \
-	if len(sys.argv) > 1 \
-	else input("Message to turn into Discord react emojis: ")
+def main(words: list[str]) -> str:
+	originalMessage: str = " ".join(words) \
+		if len(words) > 0 \
+		else input("Message to turn into Discord react emojis: ")
 
-emojis: list[str] | None = text2emojis(originalMessage)
+	emojis: list[str] | None = text2emojis(originalMessage)
 
-if emojis is None:
-	print("\033[91mImpossible to convert message to emojis.\033[0m")
-	exit(1)
-else:
-	endString: str = " ".join(emojis)
-	print(endString)
+	if emojis is None:
+		print("\033[91mImpossible to convert message to emojis.\033[0m")
+		exit(1)
+	else:
+		endString: str = " ".join(emojis)
+		print(endString)
+		return endString
+
+if __name__ == "__main__":
+	main(sys.argv[1:])

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1"/>
+	<title>🦜 Polyglot - Piratical PyScript</title>
+	<script type="module" src="https://pyscript.net/releases/2024.9.2/core.js"></script>
+</head>
+<body>
+<h1>Polyglot 🦜 💬 🇬🇧 ➡️ 🏴‍☠️</h1>
+<p>Translate English into Pirate speak...</p>
+<input type="text" id="english" placeholder="Type English here..."/>
+<button py-click="translate_english">Translate</button>
+<pre style="white-space: wrap" id="output"></pre>
+<py-config>
+[files]
+"discord_reactor.py" = "https://raw.githubusercontent.com/TechnicJelle/DiscordReactor/refs/heads/main/discord-reactor.py"
+</py-config>
+<py-script>
+from pyscript import document
+from discord_reactor import main
+def translate_english(event):
+	input_text = document.querySelector("#english")
+	text: str = input_text.value
+	if text == "" or text.isspace():
+		return
+	english = text.split(" ")
+	output_div = document.querySelector("#output")
+	output_div.innerText = main(english)
+</py-script>
+</html>
