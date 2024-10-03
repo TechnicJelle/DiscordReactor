@@ -6,11 +6,13 @@
 	<title>Discord Reactor</title>
 	<script type="module" src="https://pyscript.net/releases/2024.9.2/core.js"></script>
 	<style>
-		py-config {
-			display: none;
+		body {
+			font-family: "Roboto", "sans-serif";
 		}
-
-		py-script {
+		pre {
+			white-space: wrap;
+		}
+		py-config, py-script {
 			display: none;
 		}
 	</style>
@@ -38,6 +40,7 @@ def run(event):
 <p><small>(To try another sentence, reload the page...)</small></p>
 <input type="text" id="my_input" placeholder="Type words here..."/>
 <button py-click="run">Convert</button>
-<pre style="white-space: wrap" id="output"></pre>
+<p>Source code: <a href="https://github.com/TechnicJelle/DiscordReactor">https://github.com/TechnicJelle/DiscordReactor</a></p>
+<pre id="output"></pre>
 
 </html>
