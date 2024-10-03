@@ -10,7 +10,7 @@ With this small Python script you can convert any sentence to a valid list of Di
 ## Examples
 A successful conversion
 ```bash
-> python main.py
+> python discord-reactor.py
 Message to turn into Discord react emojis: Hello World
 :regional_indicator_h: :regional_indicator_e: :regional_indicator_l: :clock3: :regional_indicator_o: :black_small_square: :regional_indicator_w: :o2: :regional_indicator_r: :alarm_clock: :regional_indicator_d:
 ```
@@ -32,7 +32,7 @@ Message to turn into Discord react emojis: @!%@&@!%*!#%
 
 Support for command line arguments:
 ```bash
-> python main.py Hello World
+> python discord-reactor.py Hello World
 :regional_indicator_h: :regional_indicator_e: :regional_indicator_l: :clock3: :regional_indicator_o: :black_small_square: :regional_indicator_w: :o2: :regional_indicator_r: :alarm_clock: :regional_indicator_d:
 ```
 
